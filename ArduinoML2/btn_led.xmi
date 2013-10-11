@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ArduinoML:Card
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ArduinoML="http://arduinoml.com/"
+    xsi:schemaLocation="http://arduinoml.com/ ArduinoML.ecore">
+  <States Transitions="//@Transitions.0"
+      Command="//@BlockInteractions.0 //@BlockInteractions.2"
+      name="s1"
+      isInitial="true"/>
+  <States Transitions="//@Transitions.1"
+      Command="//@BlockInteractions.1 //@BlockInteractions.3"
+      name="s2"/>
+  <Transitions
+      nextState="//@States.1"
+      Condition="//@BlockInteractions.5"
+      name="1to2"/>
+  <Transitions
+      nextState="//@States.0"
+      Condition="//@BlockInteractions.4"
+      name="2to1"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Command"
+      isHigh="true"
+      name="turnOnLed1"
+      Actuator="//@Blocks.2"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Command"
+      name="turnOffLed1"
+      Actuator="//@Blocks.2"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Command"
+      name="turnOffLed2"
+      Actuator="//@Blocks.3"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Command"
+      isHigh="true"
+      name="trunOnLed2"
+      Actuator="//@Blocks.3"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Condition"
+      isHigh="true"
+      name="btn1IsOn"
+      Sensor="//@Blocks.0"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Condition"
+      isHigh="true"
+      name="btn2IsOn"
+      Sensor="//@Blocks.1"/>
+  <Blocks xsi:type="ArduinoML:Sensor"
+      name="btn1"
+      pinNumber="8"/>
+  <Blocks xsi:type="ArduinoML:Sensor"
+      name="btn2"
+      pinNumber="9"/>
+  <Blocks xsi:type="ArduinoML:Actuator"
+      name="led1"
+      pinNumber="10"/>
+  <Blocks xsi:type="ArduinoML:Actuator"
+      name="led2"
+      pinNumber="11"/>
+</ArduinoML:Card>

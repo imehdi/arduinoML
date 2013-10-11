@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ArduinoML:Card
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ArduinoML="http://arduinoml.com/"
+    xsi:schemaLocation="http://arduinoml.com/ ArduinoML.ecore">
+  <States Transitions="//@Transitions.0"
+      Command="//@BlockInteractions.0 //@BlockInteractions.5"
+      name="quiet"
+      isInitial="true"/>
+  <States Transitions="//@Transitions.1"
+      Command="//@BlockInteractions.2 //@BlockInteractions.3"
+      name="noise"/>
+  <Transitions
+      nextState="//@States.1"
+      Condition="//@BlockInteractions.1"
+      name="pushed"/>
+  <Transitions
+      nextState="//@States.0"
+      Condition="//@BlockInteractions.4"
+      name="released"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Command"
+      name="turnOff"
+      Actuator="//@Blocks.2"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Condition"
+      isHigh="true"
+      name="pushed"
+      Sensor="//@Blocks.0"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Command"
+      isHigh="true"
+      name="turnOnLed"
+      Actuator="//@Blocks.2"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Command"
+      isHigh="true"
+      name="turnOnBuzzer"
+      Actuator="//@Blocks.1"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Condition"
+      name="released"
+      Sensor="//@Blocks.0"/>
+  <BlockInteractions
+      xsi:type="ArduinoML:Command"
+      name="turnOffBuzzer"
+      Actuator="//@Blocks.1"/>
+  <Blocks xsi:type="ArduinoML:Sensor"
+      name="pushButton"
+      pinNumber="8"/>
+  <Blocks xsi:type="ArduinoML:Actuator"
+      name="buzzer"
+      pinNumber="11"/>
+  <Blocks xsi:type="ArduinoML:Actuator"
+      name="led"
+      pinNumber="12"/>
+</ArduinoML:Card>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ArduinoML -->
+      <package
+            uri="http://arduinoml.com/"
+            class="Card.CardPackage"
+            genModel="ArduinoML.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ArduinoML2 -->
+      <package
+            uri="http://arduinoml.com/"
+            class="ArduinoCard.ArduinoCardPackage"
+            genModel="ArduinoML2.genmodel"/>
+   </extension>
+
+</plugin>

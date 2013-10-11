@@ -1,0 +1,3 @@
+Desctiption of btn_led : 
+
+This program involves two led and two buttons. It contains two states. in the first state the led1 is on and the led2 is off. In the second state, the led1 is off and the led2 is on. There are two transition : one from state one to state two and one on the over direction. The transition from state one to state two is activated when button1 is pushed. The other transition is activated when button2 is activated.
