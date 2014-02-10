@@ -12,5 +12,6 @@ Export-Package: ArduinoCard,
  ArduinoCard.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
- org.eclipse.emf.cdo;visibility:=reexport
+ org.eclipse.emf.cdo;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi.source;bundle-version="2.9.1"
 Bundle-ActivationPolicy: lazy

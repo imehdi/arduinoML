@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_VLAAsGZZEeOfM5lPbmhCBw" name="model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_n-SUAGZuEeO9B5WCJGq8bw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_OG0IEHxZEeO_GtRUYHrUhA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_VM7TUGZZEeOfM5lPbmhCBw" name="Activity1"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_2DedIGZaEeOfM5lPbmhCBw" clientDependency="_WWhv8GZqEeOfY9Pe0eYTlw" name="Sensor">
+    <generalization xmi:type="uml:Generalization" xmi:id="_sHu2oGZjEeOfM5lPbmhCBw" general="_qAQMwGZjEeOfM5lPbmhCBw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EcAPoHxZEeO_GtRUYHrUhA" name="Active" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OunH4HxZEeO_GtRUYHrUhA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ounu8HxZEeO_GtRUYHrUhA" value="1"/>
+      <qualifier xmi:type="uml:Property" xmi:id="_3kDIcJEiEeOwvowFuyi4Pw" name="isActive">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_3kDIcZEiEeOwvowFuyi4Pw" name="init"/>
+      </qualifier>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_Ouo9EHxZEeO_GtRUYHrUhA">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_SycXcHxeEeO_GtRUYHrUhA" name="StateMachine_Sensor">
+      <region xmi:type="uml:Region" xmi:id="_SycXcXxeEeO_GtRUYHrUhA" name="Region1">
+        <transition xmi:type="uml:Transition" xmi:id="_SycXcnxeEeO_GtRUYHrUhA" name="Activate" guard="_IBvTUHxxEeO_GtRUYHrUhA" source="_SycXeHxeEeO_GtRUYHrUhA" target="_SycXeXxeEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_IBvTUHxxEeO_GtRUYHrUhA" name="pinValue">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_IBvTUXxxEeO_GtRUYHrUhA" name="">
+              <language>C++</language>
+              <body>this.pin.getPinValue() = 1</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:FunctionBehavior" xmi:id="_SycXc3xeEeO_GtRUYHrUhA" name="activate" specification="_faHVgHxREeO_GtRUYHrUhA">
+            <language>C</language>
+            <body>if(pin.getPinValue() == 1){Active=true;}</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_SycXdnxeEeO_GtRUYHrUhA" name="initialisation " guard="_mgOE4JHvEeO9WZPb43wNVg" source="_SycXd3xeEeO_GtRUYHrUhA" target="_SycXeHxeEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_qBW_AHxnEeO_GtRUYHrUhA" name="pinValue" constrainedElement="_QFHU4HxmEeO_GtRUYHrUhA">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_wsXhoHxrEeO_GtRUYHrUhA" name="init_val"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_0Tz8IJHlEeOKbeUVBgbdHQ" name="getPinValue" constrainedElement="_GzIMIGZtEeO9B5WCJGq8bw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_0Tz8IZHlEeOKbeUVBgbdHQ" name="getPin">
+              <language>C</language>
+              <body>this.pin.getValue()</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_jCyuAJHqEeOKbeUVBgbdHQ" name="pinNumber" constrainedElement="_GzIMIGZtEeO9B5WCJGq8bw">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_jCyuAZHqEeOKbeUVBgbdHQ" name="pinNumber" value="8"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_dfpcQJHvEeO9WZPb43wNVg" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_dfpcQZHvEeO9WZPb43wNVg">
+              <language>Natural language</language>
+              <body></body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_mgOE4JHvEeO9WZPb43wNVg" constrainedElement="_GzIMIGZtEeO9B5WCJGq8bw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_zXn1IJHvEeO9WZPb43wNVg" name="pinValue: ">
+              <language>C</language>
+              <body>this.pin.getPinValue()==0</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_dfpcQpHvEeO9WZPb43wNVg" name="init_Sensor"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_M6mgMIdoEeOHyaN3baz07g" name="Finish" guard="_fHNWYIdvEeOHyaN3baz07g" source="_SycXeXxeEeO_GtRUYHrUhA" target="_IKg1UIdoEeOHyaN3baz07g">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_N_avAIdvEeOHyaN3baz07g" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_N_bWEIdvEeOHyaN3baz07g">
+              <language>Natural language</language>
+              <body></body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_fHNWYIdvEeOHyaN3baz07g" name="FinishState" constrainedElement="_wPNWcGZwEeO9B5WCJGq8bw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_naUcEIdvEeOHyaN3baz07g" name="finishState">
+              <language>C++</language>
+              <body>activate= false; &#xD;
+pinValue = 0</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_N_bWEYdvEeOHyaN3baz07g" name="finish"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_Unk5UIdwEeOHyaN3baz07g" name="Desactivate" guard="_vRTUgIdxEeOHyaN3baz07g" source="_SycXeXxeEeO_GtRUYHrUhA" target="_SycXeHxeEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_vRTUgIdxEeOHyaN3baz07g" constrainedElement="_0bWjkGZsEeO9B5WCJGq8bw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_zXH6YIdxEeOHyaN3baz07g" name="Desactivate">
+              <language>C++</language>
+              <body>this.pin.getvalue()== 1</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_LSRr8IdyEeOHyaN3baz07g" name="DesactivateBuzzer" specification="_YubFkHbrEeOlwY27EX4nww">
+            <language>C++</language>
+            <body>activate = false</body>
+          </effect>
+        </transition>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_SycXd3xeEeO_GtRUYHrUhA" name="Receive signal" kind="entryPoint"/>
+        <subvertex xmi:type="uml:State" xmi:id="_SycXeHxeEeO_GtRUYHrUhA" name="Off"/>
+        <subvertex xmi:type="uml:State" xmi:id="_SycXeXxeEeO_GtRUYHrUhA" name="On"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_IKg1UIdoEeOHyaN3baz07g" name="final state"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_YubFkHbrEeOlwY27EX4nww" name="doAction" method="_LSRr8IdyEeOHyaN3baz07g"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_faHVgHxREeO_GtRUYHrUhA" name="replaceActivated" method="_SycXc3xeEeO_GtRUYHrUhA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_VXhZwGZZEeOfM5lPbmhCBw" name="StateMachine0">
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_AsXxoHxYEeO_GtRUYHrUhA" name="StateMachine2">
+      <region xmi:type="uml:Region" xmi:id="_B35JkHxYEeO_GtRUYHrUhA" name="Region1">
+        <transition xmi:type="uml:Transition" xmi:id="_IeLhEHxYEeO_GtRUYHrUhA" name="activate" guard="_sxoUgIuMEeO2ctYS2Piq0A" source="_Dq70gHxYEeO_GtRUYHrUhA" target="_G5A6EHxYEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_3NISsIddEeOHyaN3baz07g" name="getValue()">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_3NISsYddEeOHyaN3baz07g" name="getValue()" value="1"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_sxoUgIuMEeO2ctYS2Piq0A" name="checkValue">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_wSJ08IuMEeO2ctYS2Piq0A">
+              <language>C</language>
+              <body>pin.getValue(1);</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_nJwtEIuMEeO2ctYS2Piq0A" name="activate"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_O739QHxYEeO_GtRUYHrUhA" name="desactivate" source="_G5A6EHxYEeO_GtRUYHrUhA" target="_Dq70gHxYEeO_GtRUYHrUhA"/>
+        <transition xmi:type="uml:Transition" xmi:id="_SOVzkHxYEeO_GtRUYHrUhA" name="signal received" guard="_0vIMAIuLEeO2ctYS2Piq0A" source="_CoFQYHxYEeO_GtRUYHrUhA" target="_Dq70gHxYEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_0vIMAIuLEeO2ctYS2Piq0A" name="pinValue">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_0vIMAYuLEeO2ctYS2Piq0A" name="getValue">
+              <language>C++</language>
+              <body>pin.getPinValue(0)</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_ouY-AIuLEeO2ctYS2Piq0A" name="setValue" specification="_GUkyMIHoEeOILJ_FTVye2A">
+            <language>C++</language>
+            <body>pin.setPinValue(0)</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_2KAMYIt8EeO2ctYS2Piq0A" name="Transition0" source="_G5A6EHxYEeO_GtRUYHrUhA" target="_zjxJ8It8EeO2ctYS2Piq0A"/>
+        <transition xmi:type="uml:Transition" xmi:id="__LtDIIuMEeO2ctYS2Piq0A" name="Transition1" source="_Dq70gHxYEeO_GtRUYHrUhA" target="_Dq70gHxYEeO_GtRUYHrUhA"/>
+        <transition xmi:type="uml:Transition" xmi:id="_BduwIIuNEeO2ctYS2Piq0A" name="Transition2" source="_G5A6EHxYEeO_GtRUYHrUhA" target="_G5A6EHxYEeO_GtRUYHrUhA"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_CoFQYHxYEeO_GtRUYHrUhA" name="Receive signal" kind="entryPoint"/>
+        <subvertex xmi:type="uml:State" xmi:id="_Dq70gHxYEeO_GtRUYHrUhA" name="Off"/>
+        <subvertex xmi:type="uml:State" xmi:id="_G5A6EHxYEeO_GtRUYHrUhA" name="On"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_zjxJ8It8EeO2ctYS2Piq0A" name="FinalState"/>
+      </region>
+    </ownedBehavior>
+    <region xmi:type="uml:Region" xmi:id="_VXlrMGZZEeOfM5lPbmhCBw" name="Region0"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_5hCwMGZaEeOfM5lPbmhCBw" clientDependency="_YIsSIGZfEeOfM5lPbmhCBw _K4OgoGZqEeOfY9Pe0eYTlw" name="Actuator">
+    <generalization xmi:type="uml:Generalization" xmi:id="_tTA-AGZjEeOfM5lPbmhCBw" general="_qAQMwGZjEeOfM5lPbmhCBw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_0vvtcJElEeOwvowFuyi4Pw" name="isActive" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1WHw8JElEeOwvowFuyi4Pw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1WIYAJElEeOwvowFuyi4Pw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_1WJmIJElEeOwvowFuyi4Pw" name="default" value="false"/>
+    </ownedAttribute>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_YIsSIGZfEeOfM5lPbmhCBw" name="InterfaceImplements" client="_5hCwMGZaEeOfM5lPbmhCBw" supplier="_Y5164GZiEeOfM5lPbmhCBw" contract="_Y5164GZiEeOfM5lPbmhCBw">
+      <mapping xmi:type="uml:OpaqueExpression" xmi:id="_EYlPkHxWEeO_GtRUYHrUhA" type="_Y5164GZiEeOfM5lPbmhCBw">
+        <language>JAVA</language>
+        <body>public int readValue(){&#xD;
+return 25 ;&#xD;
+}</body>
+      </mapping>
+    </interfaceRealization>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_qOt20HxtEeO_GtRUYHrUhA" name="ActuatorStateMachine">
+      <region xmi:type="uml:Region" xmi:id="_vtd-gHxtEeO_GtRUYHrUhA" name="Region1">
+        <transition xmi:type="uml:Transition" xmi:id="_E9b8MHxuEeO_GtRUYHrUhA" name="Activate" guard="_tBP4UIuhEeO2ctYS2Piq0A" source="_1o3l8HxtEeO_GtRUYHrUhA" target="_4QE4wHxtEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_GqOvkIHcEeOILJ_FTVye2A" name="pinValue" constrainedElement="_QFHU4HxmEeO_GtRUYHrUhA">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_GqOvkYHcEeOILJ_FTVye2A" name="pinValue" value="1"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_tBP4UIuhEeO2ctYS2Piq0A" name="getValue">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_wn8SMIuhEeO2ctYS2Piq0A" name="">
+              <language>C</language>
+              <body>this.pin.getValue()==1</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_ED3U0IuhEeO2ctYS2Piq0A" name="activateActuator" specification="_aJbfAHxREeO_GtRUYHrUhA">
+            <language>C</language>
+            <body>return ActuatorON() ;</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_L_S1YHxuEeO_GtRUYHrUhA" name="Deactivate" guard="_QdjgQIufEeO2ctYS2Piq0A" source="_4QE4wHxtEeO_GtRUYHrUhA" target="_1o3l8HxtEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_icGUAIHcEeOILJ_FTVye2A" name="pinValue">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_icGUAYHcEeOILJ_FTVye2A" name="pinValue"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_QdjgQIufEeO2ctYS2Piq0A" name="" constrainedElement="_ZZsP4GZzEeO9B5WCJGq8bw _GzIMIGZtEeO9B5WCJGq8bw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_QdjgQYufEeO2ctYS2Piq0A" name="">
+              <language>C</language>
+              <body>readDigital(this.pin.getValue())&lt;25;</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Hxnq4IufEeO2ctYS2Piq0A" name="changeValue">
+            <language>C</language>
+            <body>return ActuatorOFF;</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_NEqiAHxuEeO_GtRUYHrUhA" name="Init" guard="_ChYCgJHwEeO9WZPb43wNVg" source="_zXsNgHxtEeO_GtRUYHrUhA" target="_1o3l8HxtEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_ChYCgJHwEeO9WZPb43wNVg" name="initPin" constrainedElement="_aenMoHbyEeOlwY27EX4nww">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_ChYCgZHwEeO9WZPb43wNVg" name="init">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              <language>C</language>
+              <body>this.pin.getPinValue()==0;</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_ChYCgpHwEeO9WZPb43wNVg" name="initActuator"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_zlHJAHxuEeO_GtRUYHrUhA" name="Loop" guard="_jsczgIueEeO2ctYS2Piq0A" source="_1o3l8HxtEeO_GtRUYHrUhA" target="_1o3l8HxtEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_hZuWoHxuEeO_GtRUYHrUhA" name="pinValue">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_o1BDgHxuEeO_GtRUYHrUhA" name="pinValue"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_jsczgIueEeO2ctYS2Piq0A" name="changedValue">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_jsczgYueEeO2ctYS2Piq0A" name="pinValue">
+              <language>C</language>
+              <body>readDigital(this.pin.getValue())&lt;25;</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_NTWDgIueEeO2ctYS2Piq0A" name="loop" specification="_waDAYGZjEeOfM5lPbmhCBw">
+            <language>C</language>
+            <body>readDigital(this.pin.getValue());</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_LG1t8HxvEeO_GtRUYHrUhA" name="Loop" guard="_DP-kUIuiEeO2ctYS2Piq0A" source="_4QE4wHxtEeO_GtRUYHrUhA" target="_4QE4wHxtEeO_GtRUYHrUhA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_xGE1IIHcEeOILJ_FTVye2A" constrainedElement="_QFHU4HxmEeO_GtRUYHrUhA">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_xGE1IYHcEeOILJ_FTVye2A" name="pinValue" value="1"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_8BNQgIuhEeO2ctYS2Piq0A">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_8BNQgYuhEeO2ctYS2Piq0A">
+              <language>C</language>
+              <body>readDigital(this.pin.getValue())>25;</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_DP-kUIuiEeO2ctYS2Piq0A">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_GeAmkIuiEeO2ctYS2Piq0A">
+              <language>C</language>
+              <body>readDigital(this.pin.getValue())>25;</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XqHtQIuiEeO2ctYS2Piq0A">
+            <language>C</language>
+            <body>return ActuatorON() ; </body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_rbcqEIHbEeOILJ_FTVye2A" name="goToFinal" guard="_tK2q0IuiEeO2ctYS2Piq0A" source="_4QE4wHxtEeO_GtRUYHrUhA" target="_oKP_EIHbEeOILJ_FTVye2A">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_3mw68IHcEeOILJ_FTVye2A">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_3mw68YHcEeOILJ_FTVye2A" name="pinValue" value="-1"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_tK2q0IuiEeO2ctYS2Piq0A" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_tK2q0YuiEeO2ctYS2Piq0A" name="">
+              <language>C</language>
+              <body>this.pin.getValue()==-1</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_myrAwIuiEeO2ctYS2Piq0A">
+            <language>C</language>
+            <body>return 0 ;</body>
+          </effect>
+        </transition>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_zXsNgHxtEeO_GtRUYHrUhA" name="init"/>
+        <subvertex xmi:type="uml:State" xmi:id="_1o3l8HxtEeO_GtRUYHrUhA" name="ActuatorOFF"/>
+        <subvertex xmi:type="uml:State" xmi:id="_4QE4wHxtEeO_GtRUYHrUhA" name="ActuatorON"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_oKP_EIHbEeOILJ_FTVye2A" name="Final"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_aJbfAHxREeO_GtRUYHrUhA" name="activate" method="_ED3U0IuhEeO2ctYS2Piq0A _IEsNAJHjEeOKbeUVBgbdHQ _AZniQJHkEeOKbeUVBgbdHQ"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_cggEEHxREeO_GtRUYHrUhA" name="desactivate"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4BL1EGZcEeOfM5lPbmhCBw" clientDependency="_LeiSsGZqEeOfY9Pe0eYTlw" name="LCD">
+    <generalization xmi:type="uml:Generalization" xmi:id="_sp7kwGZjEeOfM5lPbmhCBw" general="_qAQMwGZjEeOfM5lPbmhCBw"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_1sRRgGZvEeO9B5WCJGq8bw" name="defaultMessage"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_dAv4IGZdEeOfM5lPbmhCBw" name="Analogique">
+    <generalization xmi:type="uml:Generalization" xmi:id="_iDTzEGZdEeOfM5lPbmhCBw" general="_2DedIGZaEeOfM5lPbmhCBw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_e0UukGZdEeOfM5lPbmhCBw" name="Digital">
+    <generalization xmi:type="uml:Generalization" xmi:id="_hNTYIGZdEeOfM5lPbmhCBw" general="_2DedIGZaEeOfM5lPbmhCBw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ovFukGZdEeOfM5lPbmhCBw" name="Pin">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Trk6sGZsEeO9B5WCJGq8bw" name="pinNumber" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WJ-20GZsEeO9B5WCJGq8bw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WKAsAGZsEeO9B5WCJGq8bw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_WKChMGZsEeO9B5WCJGq8bw">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_KwUTEGZwEeO9B5WCJGq8bw" name="connecté"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_QFHU4HxmEeO_GtRUYHrUhA" name="pinValue" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dIHFkHxwEeO_GtRUYHrUhA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dIHsoHxwEeO_GtRUYHrUhA" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_dIITsHxwEeO_GtRUYHrUhA">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_xBtAkIHeEeOILJ_FTVye2A" name="getPinValue"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GUkyMIHoEeOILJ_FTVye2A" name="setPinValue" method="_uW-40It4EeOn5PSHW1Fbbg _ouY-AIuLEeO2ctYS2Piq0A">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_X-VeMIHoEeOILJ_FTVye2A" name="newValue">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Y5164GZiEeOfM5lPbmhCBw" name="readValues">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_waDAYGZjEeOfM5lPbmhCBw" name="readValue" method="_NTWDgIueEeO2ctYS2Piq0A"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zQv9MGZiEeOfM5lPbmhCBw" name="Carte" classifierBehavior="_egZLEIHqEeOILJ_FTVye2A">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_p71JUGZvEeO9B5WCJGq8bw" name="pin" type="_ovFukGZdEeOfM5lPbmhCBw" aggregation="composite" association="_p72XcGZvEeO9B5WCJGq8bw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p71JUWZvEeO9B5WCJGq8bw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p71JUmZvEeO9B5WCJGq8bw" value="*"/>
+    </ownedAttribute>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_egZLEIHqEeOILJ_FTVye2A" name="CarteStateMachine">
+      <region xmi:type="uml:Region" xmi:id="_f-VIsIHqEeOILJ_FTVye2A" name="Region1">
+        <transition xmi:type="uml:Transition" xmi:id="_7-pRcIHtEeOILJ_FTVye2A" name="initialisation" guard="_FIykEIt2EeOn5PSHW1Fbbg" source="_ysyrkIHtEeOILJ_FTVye2A" target="_zgkR4IHtEeOILJ_FTVye2A">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_FIykEIt2EeOn5PSHW1Fbbg" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_KLH1gIt2EeOn5PSHW1Fbbg" name="init">
+              <language>C++</language>
+              <body>pin.getValue==-1</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_-n8tQIt1EeOn5PSHW1Fbbg" name="initialisation" specification="_2ADloGZuEeO9B5WCJGq8bw">
+            <language>C++</language>
+            <body>pin.getValue()=0</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_UaYAgIHuEeOILJ_FTVye2A" name="Activate" guard="_KcPvsJHiEeOKbeUVBgbdHQ" source="_zgkR4IHtEeOILJ_FTVye2A" target="_Pfv5kIHuEeOILJ_FTVye2A">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_1u6xEIHzEeOILJ_FTVye2A" name="tempSup25" constrainedElement="_wPNWcGZwEeO9B5WCJGq8bw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_1u6xEYHzEeOILJ_FTVye2A">
+              <language>C++</language>
+              <body>getValue() > 25</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_KcPvsJHiEeOKbeUVBgbdHQ" name="getActivated" constrainedElement="_3kDIcJEiEeOwvowFuyi4Pw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_cDCAMJHiEeOKbeUVBgbdHQ" name="getActivated" behavior="_SycXcHxeEeO_GtRUYHrUhA">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              <language>C</language>
+              <body>readDigitale(8) == true</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_IEsNAJHjEeOKbeUVBgbdHQ" name="activateActuator" specification="_aJbfAHxREeO_GtRUYHrUhA">
+            <language>C</language>
+            <body>activateActuator</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_WcRm0IHuEeOILJ_FTVye2A" name="returnToInitialeState" guard="_XGbt4JHjEeOKbeUVBgbdHQ" source="_Pfv5kIHuEeOILJ_FTVye2A" target="_zgkR4IHtEeOILJ_FTVye2A">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_XGbt4JHjEeOKbeUVBgbdHQ" name="dizableBuzzer" constrainedElement="_gve_sHbwEeOlwY27EX4nww">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_XGbt4ZHjEeOKbeUVBgbdHQ" name="disable">
+              <language>C</language>
+              <body>return Off();</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_dHhW0IHuEeOILJ_FTVye2A" name="Transition3" source="_Pfv5kIHuEeOILJ_FTVye2A" target="_iWfbEIt7EeO2ctYS2Piq0A"/>
+        <transition xmi:type="uml:Transition" xmi:id="_5VcIoIHvEeOILJ_FTVye2A" name="Loop" guard="_PvA-8JHkEeOKbeUVBgbdHQ" source="_Pfv5kIHuEeOILJ_FTVye2A" target="_Pfv5kIHuEeOILJ_FTVye2A">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_PvA-8JHkEeOKbeUVBgbdHQ" name="isActivated" constrainedElement="_wPNWcGZwEeO9B5WCJGq8bw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_PvA-8ZHkEeOKbeUVBgbdHQ" type="_SycXc3xeEeO_GtRUYHrUhA" behavior="_SycXcHxeEeO_GtRUYHrUhA">
+              <language>C</language>
+              <body>readDigital(10)>25</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_AZniQJHkEeOKbeUVBgbdHQ" name="On" specification="_aJbfAHxREeO_GtRUYHrUhA">
+            <language>C</language>
+            <body>return On();</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_IS3xQIHwEeOILJ_FTVye2A" name="Loop" guard="_EvCOAIt7EeO2ctYS2Piq0A" source="_zgkR4IHtEeOILJ_FTVye2A" target="_zgkR4IHtEeOILJ_FTVye2A">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_EvCOAIt7EeO2ctYS2Piq0A" constrainedElement="_0bWjkGZsEeO9B5WCJGq8bw _E4J3AHbxEeOlwY27EX4nww">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_EvCOAYt7EeO2ctYS2Piq0A" name="pinValue">
+              <language>C++</language>
+              <body>pin.getValue()==0</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_uW-40It4EeOn5PSHW1Fbbg" name="setPinValue " specification="_GUkyMIHoEeOILJ_FTVye2A">
+            <language>C++</language>
+            <body>pin.pinValue = 0</body>
+          </effect>
+        </transition>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_ysyrkIHtEeOILJ_FTVye2A" name="Initial0"/>
+        <subvertex xmi:type="uml:State" xmi:id="_zgkR4IHtEeOILJ_FTVye2A" name="On">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_SRPmgHxsEeO_GtRUYHrUhA" name="pinValue">
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_SRPmgXxsEeO_GtRUYHrUhA" name="pinValue"/>
+          </ownedRule>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_Pfv5kIHuEeOILJ_FTVye2A" name="Off"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_iWfbEIt7EeO2ctYS2Piq0A" name="FinalState0"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_2ADloGZuEeO9B5WCJGq8bw" name="init" method="_-n8tQIt1EeOn5PSHW1Fbbg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_qAQMwGZjEeOfM5lPbmhCBw" name="Brick">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_RmU_EGZkEeOfM5lPbmhCBw" name="port1" aggregation="composite"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Dhq8EGZlEeOfM5lPbmhCBw" name="pin" type="_ovFukGZdEeOfM5lPbmhCBw" association="_DhrjIGZlEeOfM5lPbmhCBw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Dhq8EWZlEeOfM5lPbmhCBw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Dhq8EmZlEeOfM5lPbmhCBw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_dIDcMGZsEeO9B5WCJGq8bw" name="name" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_exvW0GZsEeO9B5WCJGq8bw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_exv94GZsEeO9B5WCJGq8bw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_exxMAGZsEeO9B5WCJGq8bw">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_c9g0kHxvEeO_GtRUYHrUhA" name="initiate"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_DhrjIGZlEeOfM5lPbmhCBw" name="connecté" memberEnd="_DhrjIWZlEeOfM5lPbmhCBw _Dhq8EGZlEeOfM5lPbmhCBw">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_DhrjIWZlEeOfM5lPbmhCBw" name="brick" type="_qAQMwGZjEeOfM5lPbmhCBw" association="_DhrjIGZlEeOfM5lPbmhCBw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DhrjImZlEeOfM5lPbmhCBw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DhrjI2ZlEeOfM5lPbmhCBw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_K4OgoGZqEeOfY9Pe0eYTlw" name="readActuator" client="_5hCwMGZaEeOfM5lPbmhCBw" supplier="_Y5164GZiEeOfM5lPbmhCBw"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_LeiSsGZqEeOfY9Pe0eYTlw" name="readLCD" client="_4BL1EGZcEeOfM5lPbmhCBw" supplier="_Y5164GZiEeOfM5lPbmhCBw"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_NOvsEGZqEeOfY9Pe0eYTlw" name="writeValues">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_btOH0GZqEeOfY9Pe0eYTlw" name="writeValue"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_WWhv8GZqEeOfY9Pe0eYTlw" name="writeValue" client="_2DedIGZaEeOfM5lPbmhCBw" supplier="_NOvsEGZqEeOfY9Pe0eYTlw"/>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_0bWjkGZsEeO9B5WCJGq8bw" name="P1 " classifier="_ovFukGZdEeOfM5lPbmhCBw">
+    <slot xmi:type="uml:Slot" xmi:id="_7lcLsGZsEeO9B5WCJGq8bw" definingFeature="_Trk6sGZsEeO9B5WCJGq8bw">
+      <value xmi:type="uml:LiteralInteger" xmi:id="_GzIMIGZtEeO9B5WCJGq8bw" name="pinNumber" value="8"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_BlWtcHxrEeO_GtRUYHrUhA" definingFeature="_QFHU4HxmEeO_GtRUYHrUhA">
+      <value xmi:type="uml:LiteralInteger" xmi:id="_aTJc4HxrEeO_GtRUYHrUhA" name="Integer"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_p72XcGZvEeO9B5WCJGq8bw" name="Contient" memberEnd="_p72XcWZvEeO9B5WCJGq8bw _p71JUGZvEeO9B5WCJGq8bw">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_p72XcWZvEeO9B5WCJGq8bw" name="carte" type="_zQv9MGZiEeOfM5lPbmhCBw" association="_p72XcGZvEeO9B5WCJGq8bw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p72XcmZvEeO9B5WCJGq8bw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p72Xc2ZvEeO9B5WCJGq8bw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_SonsEGZwEeO9B5WCJGq8bw" name="card" classifier="_zQv9MGZiEeOfM5lPbmhCBw">
+    <slot xmi:type="uml:Slot" xmi:id="_tvWo0WZwEeO9B5WCJGq8bw" definingFeature="_p71JUGZvEeO9B5WCJGq8bw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_tvWo0mZwEeO9B5WCJGq8bw" name="InstanceValue0" type="_ovFukGZdEeOfM5lPbmhCBw" instance="_0bWjkGZsEeO9B5WCJGq8bw"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_OvDqsXbxEeOlwY27EX4nww" definingFeature="_p71JUGZvEeO9B5WCJGq8bw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_OvERwHbxEeOlwY27EX4nww" name="InstanceValue0" type="_ovFukGZdEeOfM5lPbmhCBw" instance="_E4J3AHbxEeOlwY27EX4nww"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_tvUzoGZwEeO9B5WCJGq8bw" name="InstanceSpecification0" classifier="_p72XcGZvEeO9B5WCJGq8bw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tvWBwGZwEeO9B5WCJGq8bw" source="InstanceEnd" references="_0bWjkGZsEeO9B5WCJGq8bw _SonsEGZwEeO9B5WCJGq8bw"/>
+    <slot xmi:type="uml:Slot" xmi:id="_tvWBwWZwEeO9B5WCJGq8bw" definingFeature="_p72XcWZvEeO9B5WCJGq8bw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_tvWo0GZwEeO9B5WCJGq8bw" name="InstanceValue0" type="_zQv9MGZiEeOfM5lPbmhCBw" instance="_SonsEGZwEeO9B5WCJGq8bw"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_wPNWcGZwEeO9B5WCJGq8bw" name="Temperature" classifier="_qAQMwGZjEeOfM5lPbmhCBw _dAv4IGZdEeOfM5lPbmhCBw">
+    <slot xmi:type="uml:Slot" xmi:id="_2y5QcGZxEeO9B5WCJGq8bw" definingFeature="_dIDcMGZsEeO9B5WCJGq8bw">
+      <value xmi:type="uml:LiteralString" xmi:id="_8yW4gGZxEeO9B5WCJGq8bw" name="name" value="TempSens"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_ZZro0WZzEeO9B5WCJGq8bw" definingFeature="_Dhq8EGZlEeOfM5lPbmhCBw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_ZZsP4GZzEeO9B5WCJGq8bw" name="InstanceValue0" type="_ovFukGZdEeOfM5lPbmhCBw" instance="_0bWjkGZsEeO9B5WCJGq8bw"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_d2Jm4JEiEeOwvowFuyi4Pw" definingFeature="_3kDIcJEiEeOwvowFuyi4Pw">
+      <value xmi:type="uml:LiteralBoolean" xmi:id="_8ROCMJEiEeOwvowFuyi4Pw" name="active"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ZZpzoGZzEeO9B5WCJGq8bw" name="InstanceSpecification1" classifier="_DhrjIGZlEeOfM5lPbmhCBw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZZrBwGZzEeO9B5WCJGq8bw" source="InstanceEnd" references="_wPNWcGZwEeO9B5WCJGq8bw _0bWjkGZsEeO9B5WCJGq8bw"/>
+    <slot xmi:type="uml:Slot" xmi:id="_ZZrBwWZzEeO9B5WCJGq8bw" definingFeature="_DhrjIWZlEeOfM5lPbmhCBw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_ZZro0GZzEeO9B5WCJGq8bw" name="InstanceValue0" type="_qAQMwGZjEeOfM5lPbmhCBw" instance="_wPNWcGZwEeO9B5WCJGq8bw"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_fecLYHbsEeOlwY27EX4nww" name="testClass" classifierBehavior="_m9dhsHbsEeOlwY27EX4nww">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_lyUkQHbsEeOlwY27EX4nww" name="Attribute2"/>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_m9dhsHbsEeOlwY27EX4nww" name="StateMachine1">
+      <region xmi:type="uml:Region" xmi:id="_nT3PgHbsEeOlwY27EX4nww" name="Region1">
+        <transition xmi:type="uml:Transition" xmi:id="_33yU0HbsEeOlwY27EX4nww" name="Transition0" guard="_Cs3oAHbtEeOlwY27EX4nww" source="_n3p5EHbsEeOlwY27EX4nww" target="_n3p5EHbsEeOlwY27EX4nww">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_Cs3oAHbtEeOlwY27EX4nww" constrainedElement="_2DedIGZaEeOfM5lPbmhCBw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_ONS-QHbtEeOlwY27EX4nww">
+              <language>OCL</language>
+              <body>self.mySensor.etat = true</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <subvertex xmi:type="uml:State" xmi:id="_n3p5EHbsEeOlwY27EX4nww" name="State0"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_j6eR0HbsEeOlwY27EX4nww" name="operation1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_gve_sHbwEeOlwY27EX4nww" name="Buzzer" classifier="_5hCwMGZaEeOfM5lPbmhCBw _qAQMwGZjEeOfM5lPbmhCBw">
+    <slot xmi:type="uml:Slot" xmi:id="_rsI6gHbwEeOlwY27EX4nww" definingFeature="_dIDcMGZsEeO9B5WCJGq8bw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_NATNYHbyEeOlwY27EX4nww" name="buzzer" instance="_gve_sHbwEeOlwY27EX4nww"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_gKLdw3bxEeOlwY27EX4nww" definingFeature="_Dhq8EGZlEeOfM5lPbmhCBw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_gKLdxHbxEeOlwY27EX4nww" name="InstanceValue0" type="_ovFukGZdEeOfM5lPbmhCBw" instance="_E4J3AHbxEeOlwY27EX4nww"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_fa4BoJElEeOwvowFuyi4Pw" definingFeature="_0vvtcJElEeOwvowFuyi4Pw">
+      <value xmi:type="uml:LiteralBoolean" xmi:id="_CN7J0JEmEeOwvowFuyi4Pw" name="default"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_E4J3AHbxEeOlwY27EX4nww" name="P2" classifier="_ovFukGZdEeOfM5lPbmhCBw">
+    <slot xmi:type="uml:Slot" xmi:id="_9VL_YHbxEeOlwY27EX4nww" definingFeature="_Trk6sGZsEeO9B5WCJGq8bw">
+      <value xmi:type="uml:LiteralInteger" xmi:id="_aenMoHbyEeOlwY27EX4nww" name="pinNumber" value="10"/>
+    </slot>
+    <slot xmi:type="uml:Slot" xmi:id="_1oYkoIdsEeOHyaN3baz07g" definingFeature="_QFHU4HxmEeO_GtRUYHrUhA">
+      <value xmi:type="uml:LiteralInteger" xmi:id="_DmPmoIdtEeOHyaN3baz07g" name="pinValue"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_OuqCEHbxEeOlwY27EX4nww" name="InstanceSpecification2" classifier="_p72XcGZvEeO9B5WCJGq8bw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OvCckHbxEeOlwY27EX4nww" source="InstanceEnd" references="_SonsEGZwEeO9B5WCJGq8bw _E4J3AHbxEeOlwY27EX4nww"/>
+    <slot xmi:type="uml:Slot" xmi:id="_OvDDoHbxEeOlwY27EX4nww" definingFeature="_p72XcWZvEeO9B5WCJGq8bw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_OvDqsHbxEeOlwY27EX4nww" name="InstanceValue0" type="_zQv9MGZiEeOfM5lPbmhCBw" instance="_SonsEGZwEeO9B5WCJGq8bw"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_gKK2sHbxEeOlwY27EX4nww" name="InstanceSpecification3" classifier="_DhrjIGZlEeOfM5lPbmhCBw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gKLdwHbxEeOlwY27EX4nww" source="InstanceEnd" references="_E4J3AHbxEeOlwY27EX4nww _gve_sHbwEeOlwY27EX4nww"/>
+    <slot xmi:type="uml:Slot" xmi:id="_gKLdwXbxEeOlwY27EX4nww" definingFeature="_DhrjIWZlEeOfM5lPbmhCBw">
+      <value xmi:type="uml:InstanceValue" xmi:id="_gKLdwnbxEeOlwY27EX4nww" name="InstanceValue0" type="_qAQMwGZjEeOfM5lPbmhCBw" instance="_gve_sHbwEeOlwY27EX4nww"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_CKEcsHxuEeO_GtRUYHrUhA" name="events">
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_CKkzAHxuEeO_GtRUYHrUhA" name="CE - Actuator - activate" operation="_aJbfAHxREeO_GtRUYHrUhA"/>
+  </packagedElement>
+</uml:Model>

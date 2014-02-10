@@ -1,0 +1,64 @@
+
+
+void setup() {
+			pinMode(8,INPUT);
+				
+			
+			pinMode(10,OUTPUT);
+				
+			
+}
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			void Initial0(){
+			if(pin.getValue==-1)
+               	return On();
+				
+				else{
+					return Initial0();
+				}
+}
+			
+			void On(){
+			if(readDigitale(8) == truepin.getValue()==0)
+               	return OffOn();
+				
+				else{
+					return On();
+				}
+}
+			
+			void FinalState0(){
+			if()
+               	return ();
+				
+				else{
+					return FinalState0();
+				}
+}
+			
+			void Off(){
+			if(invalid)
+               	return OffOnFinalState0();
+				
+				else{
+					return Off();
+				}
+}
+			
+			
+
+
+
+
